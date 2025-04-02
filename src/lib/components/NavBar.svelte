@@ -90,6 +90,9 @@
 		height: 80px;
 		overflow: hidden;
 		transition: height 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+		background-color: #ffffff; /* Ensure background is visible */
+		z-index: 10; /* Ensure it appears above other elements */
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
 	}
 	.buttons {
 		display: none;
@@ -115,7 +118,7 @@
 		text-decoration: none;
 		position: relative;
 		margin: 10px;
-		color: #000;
+		color: #007acc; /* Adjusted for better visibility */
 	}
 	.button.selected {
 		color: #000;
