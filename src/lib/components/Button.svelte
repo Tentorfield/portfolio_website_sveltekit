@@ -1,10 +1,10 @@
 <script>
-	import { goto } from '$app/navigation';
+	let { children, href = 'mailto:huytngo00@gmail.com' } = $props();
 </script>
 
-<button class="button" on:click={() => goto('mailto:huytngo00@gmail.com.com')} aria-label="Send email to huytngo00@gmail.com.com">
-	<slot />
-</button>
+<a class="button" {href} aria-label="Send email">
+	{@render children?.()}
+</a>
 
 <style>
 	.button {
@@ -13,13 +13,17 @@
 		max-width: 200px;
 		border-radius: 10px;
 		background: #ca3c25;
-		background-size: 150% 150%;
-		display: flex;
+		color: #fff;
+		display: inline-flex;
 		justify-content: center;
 		align-items: center;
 		font-weight: 500;
+		text-decoration: none;
+		padding: 0 16px;
+		transition: filter 0.2s ease, transform 0.2s ease;
 	}
 	.button:hover {
-		animation: gradient 2s ease infinite;
+		filter: brightness(1.05);
+		transform: translateY(-1px);
 	}
 </style>

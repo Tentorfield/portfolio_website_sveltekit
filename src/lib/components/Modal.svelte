@@ -1,25 +1,41 @@
 <script>
 	import { modalOpened } from '$lib/store.js';
-	let isOpen = false;
-	let closing = false;
+
+	let { content } = $props();
+
+	let isOpen = $state(false);
+	let closing = $state(false);
+
 	modalOpened.subscribe((value) => {
 		closing = false;
 		isOpen = value;
 	});
-	const close = () => {
+
+	function close() {
 		closing = true;
 		setTimeout(() => {
 			modalOpened.set(false);
 		}, 300);
-	};
+	}
+
+	function onKey(e) {
+		if (e.key === 'Escape') close();
+	}
 </script>
 
+<svelte:window onkeydown={onKey} />
+
 {#if isOpen}
-	<div class={`modal ${closing && 'closing'}`}>
-		<button class="backdrop" on:click={close} on:keydown={(e) => e.key === 'Enter' && close()} aria-label="Close modal"></button>
+	<div class={`modal ${closing ? 'closing' : ''}`}>
+		<button
+			type="button"
+			class="backdrop"
+			aria-label="Close modal"
+			onclick={close}
+		></button>
 		<div class="content-wrapper">
 			<div class="content">
-				<slot name="content" />
+				{@render content?.()}
 			</div>
 		</div>
 	</div>
@@ -54,6 +70,8 @@
 		background-color: rgba(0, 0, 0, 0.5);
 		-webkit-backdrop-filter: blur(5px);
 		backdrop-filter: blur(5px);
+		border: none;
+		cursor: pointer;
 		animation: slidein 0.3s ease-in-out;
 	}
 	@keyframes openModalAnimation {
@@ -69,14 +87,13 @@
 	.content-wrapper {
 		z-index: 10;
 		max-width: 70vw;
-		border-radius: 0.3rem;
 		overflow: hidden;
 		padding: 30px;
 		border-radius: 25px;
-		background: linear-gradient(155deg, rgba(255, 255, 255, 0.15), transparent);
+		background: linear-gradient(155deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.65));
 		-webkit-backdrop-filter: blur(20px);
 		backdrop-filter: blur(20px);
-		box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1), inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+		box-shadow: 2px 4px 24px rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
 		animation: openModalAnimation 0.3s ease-in-out;
 	}
 	@keyframes slideOut {
@@ -104,8 +121,8 @@
 		animation: closeModalAnimation 0.3s ease-in-out;
 	}
 	.content {
-		max-height: 50vh;
-		overflow: hidden;
+		max-height: 70vh;
+		overflow: auto;
 	}
 	@media (min-width: 900px) {
 		.content-wrapper {

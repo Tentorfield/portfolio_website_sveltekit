@@ -1,120 +1,61 @@
 <script>
 	import Navbar from '$lib/components/NavBar.svelte';
 	import Button from '$lib/components/Button.svelte';
-	import { faCopy } from '@fortawesome/free-solid-svg-icons'; // Correct import
-	import Fa from 'svelte-fa'; // Use default export
+	import { faCopy, faCheck } from '@fortawesome/free-solid-svg-icons';
+	import Fa from 'svelte-fa';
 	import Tooltip from '$lib/components/Tooltip.svelte';
-	import CopyClipBoard from '$lib/components/CopyToClipBoard.svelte';
-	import { beforeNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import Modal from '$lib/components/Modal.svelte';
-	import { onMount } from 'svelte';
-	import { writable } from 'svelte/store';
-	export const customBackground = writable('#ffffff'); // Set default to light background
 
-	import routes from '$lib/NavRoutes';
-	let copied = false;
-	let email = 'huytngo00@gmail.com';
-	const cookieEnabled = false;
-	$: showCookieModal = false;
-	const cssVariables = (node, variables) => {
-		setCssVariables(node, variables);
-		return {
-			update(variables) {
-				setCssVariables(node, variables);
-			}
-		};
-	};
-	const setCssVariables = (node, variables) => {
-		for (const name in variables) {
-			node.style.setProperty(`--${name}`, variables[name]);
+	let { children } = $props();
+
+	const email = 'huytngo00@gmail.com';
+	let copied = $state(false);
+
+	async function copy() {
+		try {
+			await navigator.clipboard.writeText(email);
+			copied = true;
+			setTimeout(() => (copied = false), 1200);
+		} catch (err) {
+			console.warn('Clipboard write failed', err);
 		}
-	};
-	const copy = () => {
-		const app = new CopyClipBoard({
-			target: document.getElementById('clipboard'),
-			props: { email }
-		});
-		app.$destroy();
-	};
-	onMount(() => {
-		const showCookie = localStorage.getItem('showCookieModal');
-		if (showCookie !== null) showCookieModal = JSON.parse(showCookie);
-		else showCookieModal = true;
-	});
-	// beforeNavigate(({ to }) => {
-	// 	const pathName = to.pathname;
-	// 	const route = routes.find((route) => pathName === route.href);
-	// 	if (!route.customColor) {
-	// 		customBackground.set('#0a0908');
-	// 	} else customBackground.set(route.customColor);
-	// 	});
+	}
 </script>
 
-<svelte:body use:cssVariables={{ background: $customBackground }} />
-
-{#if showCookieModal && cookieEnabled}
-	<div class="cookieContainer">
-		<p>🍪 This website use <a href="privacy-policy">Cookies.</a></p>
-		<button
-			type="button"
-			aria-label="Close cookie consent"
-			on:click={() => {
-				showCookieModal = false;
-				localStorage.setItem('showCookieModal', false);
-			}}
-			style="background: none; border: none; cursor: pointer; font-size: inherit;"
-		>
-			&#10005;
-		</button>
-	</div>
-{/if}
-
 <Modal>
-	<div slot="content" class="modalContainer">
-		<h1>Email:</h1>
-		<div>
-			<p>{email}</p>
-			&nbsp;
-			<div class="tooltip">
+	{#snippet content()}
+		<div class="modalContainer">
+			<h1>Email</h1>
+			<div class="emailRow">
+				<p>{email}</p>
 				<Tooltip tooltip={copied ? 'Copied' : 'Copy'}>
 					<button
-						id="clipboard"
+						class="copyBtn"
 						aria-label="Copy email to clipboard"
-						on:click={() => {
-							copied = true;
-							copy();
-							setTimeout(() => {
-								copied = false;
-							}, 500);
-						}}
-						style="background: none; border: none; cursor: pointer; padding: 0;"
+						onclick={copy}
 					>
-						<Fa icon={faCopy} />
+						<Fa icon={copied ? faCheck : faCopy} />
 					</button>
 				</Tooltip>
 			</div>
+			<Button>Send Email</Button>
 		</div>
-		<Button>Send Email</Button>
-	</div>
+	{/snippet}
 </Modal>
+
 <Navbar segment={$page.url.pathname} />
 
-<slot />
+{@render children?.()}
 
 <footer>
-	Created by <a class="me" href="/about">Tentorfield</a> ❤️ with
-	<span class="svelte">Svelte</span>
+	Built by <a class="me" href="/about">Huy Ngo</a> with
+	<span class="svelte">Svelte 5</span>
 </footer>
 
 <style>
 	* {
 		box-sizing: border-box;
-	}
-	@font-face {
-		font-family: 'Fira Code', monospace;
-		font-display: optional;
-		src: url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
 	}
 	:global(#svelte) {
 		width: 100vw;
@@ -132,13 +73,10 @@
 		height: 100%;
 		overflow: auto;
 		font-family: 'Fira Code', monospace;
-		background-color: #ffffff; /* Changed to light background */
-		color: #000000; /* Changed to dark text */
+		background-color: #ffffff;
+		color: #000000;
 	}
 	:global(body) {
-		background-color: var(--background, #ffffff); /* Ensure fallback is light */
-		background-size: 200% 200%;
-		color: #000000; /* Changed to dark text */
 		margin: 0;
 		box-sizing: border-box;
 		display: flex;
@@ -146,37 +84,39 @@
 		min-height: 100vh;
 		line-height: 1.75;
 		place-items: center;
-		height: 100%;
 		overflow-x: hidden;
 	}
 	footer {
-		font-size: 16px;
+		font-size: 14px;
 		font-weight: 400;
 		padding: 30px 0;
 		max-width: 900px;
 		text-align: center;
 		width: 100%;
-		margin-top: auto; /* Push footer to the bottom */
+		margin-top: auto;
+		opacity: 0.7;
+	}
+	footer .svelte {
+		color: #ca3c25;
+		font-weight: 600;
 	}
 	:global(h1) {
 		border: 0;
 	}
 	:global(::selection) {
-		color: #000;
-		background: #ca3c25; /* Adjusted for better contrast */
+		color: #fff;
+		background: #ca3c25;
 	}
 	:global(::-webkit-scrollbar) {
 		width: 8px;
 		height: 8px;
-		border-radius: 1px;
 	}
 	:global(::-webkit-scrollbar-thumb) {
-		background-color: #fff;
+		background-color: #ddd;
 		border-radius: 3px;
 	}
 	:global(::-webkit-scrollbar-track) {
 		background-color: transparent;
-		border-radius: 1px;
 	}
 	@media (min-width: 900px) {
 		:global(body) {
@@ -186,74 +126,47 @@
 	:global(a) {
 		text-decoration: none;
 	}
-	:global(a) {
-		text-decoration: none;
-	}
 	a {
-		color: rgb(0, 100, 200);
-		text-decoration: none;
+		color: #007acc;
 	}
 	a:hover {
 		text-decoration: underline;
 	}
 	a:visited {
-		color: rgb(0, 80, 160);
+		color: #007acc;
 	}
-	.modalContainer div {
+	.modalContainer {
 		display: flex;
-		margin-bottom: 20px;
+		flex-direction: column;
+		gap: 18px;
 	}
-	.modalContainer p {
+	.modalContainer h1 {
 		margin: 0;
+		font-size: 24px;
+	}
+	.emailRow {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+	.emailRow p {
+		margin: 0;
+		font-size: 16px;
+	}
+	.copyBtn {
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+		font-size: 18px;
+		color: inherit;
 	}
 	:global(.tooltip) {
 		visibility: hidden;
 	}
-	.cookieContainer {
-		background: white;
-		border-radius: 0px;
-		text-align: center;
-		width: 100%;
-		height: 30px;
-		color: black;
-		padding: 30px;
-		display: flex;
-		justify-content: space-evenly;
-		align-items: center;
-		position: fixed;
-		bottom: 0px;
-		left: 0;
-		right: 0;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	.cookieContainer > p > a {
-		text-decoration: underline;
-	}
-	/* Removed unused selector */
 	@media (min-width: 900px) {
 		:global(.tooltip) {
 			visibility: visible;
-		}
-	}
-	@media (min-width: 600px) {
-		.cookieContainer {
-			background: white;
-			border-radius: 50px;
-			text-align: center;
-			width: 350px;
-			height: 30px;
-			color: black;
-			padding: 0 10px;
-			display: flex;
-			justify-content: space-evenly;
-			align-items: center;
-			position: fixed;
-			bottom: 50px;
-			left: 0;
-			right: 0;
-			margin-left: auto;
-			margin-right: auto;
 		}
 	}
 </style>

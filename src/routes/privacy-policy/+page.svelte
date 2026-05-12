@@ -38,7 +38,7 @@
 			<li>
 				<p>
 					<strong>Company</strong> (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot;
-					or &quot;Our&quot; in this Agreement) refers to Gianmarco Cavallo.
+					or &quot;Our&quot; in this Agreement) refers to Huy Ngo.
 				</p>
 			</li>
 			<li>
@@ -49,7 +49,7 @@
 				</p>
 			</li>
 			<li>
-				<p><strong>Country</strong> refers to: Italy</p>
+				<p><strong>Country</strong> refers to: United States, California</p>
 			</li>
 			<li>
 				<p>
@@ -83,8 +83,8 @@
 			</li>
 			<li>
 				<p>
-					<strong>Website</strong> refers to Gianmarco Cavallo, accessible from
-					<a href="gianmarco.xyz" rel="external nofollow noopener" target="_blank">gianmarco.xyz</a>
+					<strong>Website</strong> refers to Huy Ngo, accessible from
+					<a href="https://huyngo.dev" rel="external nofollow noopener" target="_blank">huyngo.dev</a>
 				</p>
 			</li>
 			<li>

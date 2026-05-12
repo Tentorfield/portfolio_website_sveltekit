@@ -10,9 +10,23 @@
 	<main>
 		<h1>About</h1>
 		<p>
-			With a background in Economics and Computer Science with 3+ years of experience in product management, data analytics, and front-end development. 
-			I excel in leveraging technologies and frameworks to gather requirements from stakeholders, engage with technical teams, and deliver successful software products. Based in California, I am dedicated to staying current 
-			on the most suitable methodologies to tackle any project at hand, ensuring the best outcome for any company.
+			I'm an <strong>AI Engineer &amp; Data Analyst</strong> based in California, with a background in
+			Business Economics and Computer Science (UC Riverside). I currently work as a Data Analyst at
+			<strong>Innova Electronics Corporation</strong>, where I build cloud data pipelines on
+			AWS + Snowflake, ship predictive ML models, and deliver an internal natural-language analytics
+			chatbot powered by Snowflake Cortex Analyst.
+		</p>
+		<p>
+			Outside of Innova I run <strong>EnEns LLC</strong>, a single-member California LLC focused on
+			applied AI engineering and data consulting. Recent work includes a trilingual
+			(English / Vietnamese / Spanish) production AI phone receptionist built on the OpenAI Realtime API
+			and Twilio for a physical therapy clinic, and an AI-driven decision-support &amp; logistics POC
+			for an enterprise purchasing department.
+		</p>
+		<p>
+			Previously I spent three years as a Software Product Engineer driving product strategy for
+			diagnostic platforms used by 1M+ installs and 40k+ active devices. That product foundation
+			now powers everything I build on the data and AI side.
 		</p>
 		<h2>Skills</h2>
 		{#each Object.entries(skills) as [section, technologies]}

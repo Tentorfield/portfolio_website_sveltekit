@@ -1,8 +1,9 @@
 <script>
 	import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-	import Fa from 'svelte-fa'; // Use svelte-fa for icons
-	export let data;
-	let article = data.article;
+	import Fa from 'svelte-fa';
+
+	let { data } = $props();
+	const article = $derived(data.article);
 </script>
 
 <svelte:head>
@@ -13,8 +14,8 @@
 	<div class="article">
 		{#if article}
 			<h1 class="title">
-				<a href={article.url} target="_blank" rel="noreferrer">{article.title} </a>
-				<div class="icon"><Fa icon={faExternalLinkAlt} /></div>
+				<a href={article.url} target="_blank" rel="noreferrer">{article.title}</a>
+				<span class="icon"><Fa icon={faExternalLinkAlt} /></span>
 			</h1>
 			{@html article.body_html}
 		{/if}
@@ -24,56 +25,46 @@
 <style>
 	.articleContainer {
 		width: 100%;
-		max-width: 350px;
+		max-width: 900px;
 		display: flex;
 		justify-content: center;
 		box-sizing: border-box;
-		text-align: center;
 		padding: 0;
 		margin: 50px 10px 0;
-		text-align: center;
-		/* font-size: 20px; */
 	}
 	h1 {
 		font-weight: 700;
 		text-align: start;
 		margin: 0;
-		/* font-size: 36px; */
 	}
 	.title {
 		display: flex;
+		align-items: center;
+		gap: 10px;
 	}
 	.article :global(img) {
-		max-width: 80%;
+		max-width: 100%;
 	}
 	.article {
 		text-align: start;
 		box-sizing: border-box;
-		font-weight: 700;
 		display: flex;
 		flex-direction: column;
 		padding: 30px;
 		width: 100%;
-		border-radius: 5px;
 	}
 	.icon {
 		width: 20px;
 		height: 20px;
-		margin-left: 10px;
+		display: inline-flex;
+		align-items: center;
 	}
 	.article > h1 > a {
-		color: rgb(0, 0, 0);
-	}
-	.article:hover {
-		cursor: pointer;
+		color: #000;
 	}
 	@media (min-width: 900px) {
-		.articleContainer {
-			padding: 0;
-			max-width: 900px;
-		}
 		.article > h1 {
-			font-size: 48px;
+			font-size: 36px;
 			margin: 50px 0 0 0;
 		}
 	}
