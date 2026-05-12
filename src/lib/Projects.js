@@ -19,7 +19,7 @@ const projects = [
 		],
 		description:
 			'Production trilingual (English / Vietnamese / Spanish) AI phone receptionist for a physical therapy clinic in Fountain Valley, CA. Handles overflow + after-hours calls, books appointments live into Google Calendar, takes messages, and sends SMS confirmations. Engineered half-duplex echo gating, caller barge-in, and mid-call language switching for natural conversational UX. Deployed on AWS EC2 with TLS, pm2 process management, and uptime monitoring.',
-		url: 'https://github.com/Tentorfield'
+		url: ''
 	},
 	{
 		title: 'QD.TEK AI Automation & Decision-Support Platform',
