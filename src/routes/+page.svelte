@@ -62,15 +62,18 @@
 
 <style>
 	main {
+		width: 100%;
+		max-width: 900px;
 		text-align: center;
-		padding: 0 16px;
+		padding: 24px 20px;
 		margin: 0 auto;
 		display: flex;
 		flex-direction: column;
-		min-height: calc(100vh - 80px - 88px);
+		min-height: calc(100vh - 64px - 88px);
 		justify-content: center;
 		align-items: center;
 		gap: 32px;
+		box-sizing: border-box;
 	}
 	h1 {
 		font-weight: 700;

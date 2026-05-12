@@ -20,8 +20,13 @@
 			Outside of Innova I run <strong>EnEns LLC</strong>, a single-member California LLC focused on
 			applied AI engineering and data consulting. Recent work includes a trilingual
 			(English / Vietnamese / Spanish) production AI phone receptionist built on the OpenAI Realtime API
-			and Twilio for a physical therapy clinic, and an AI-driven decision-support &amp; logistics POC
-			for an enterprise purchasing department.
+			and Twilio for a physical therapy clinic.
+		</p>
+		<p>
+			Through EnEns I'm also engaged with <strong>QD.TEK</strong> on their
+			<em>AI Automation &amp; Decision-Support Platform</em> — an enterprise POC for the
+			Purchasing &amp; Logistics department that translates manual procurement workflows into
+			automated data pipelines and ML-backed decision logic.
 		</p>
 		<p>
 			Previously I spent three years as a Software Product Engineer driving product strategy for
@@ -50,16 +55,16 @@
 
 <style>
 	.container {
+		width: 100%;
 		max-width: 900px;
-		padding: 0;
-		display: flex;
-		justify-content: center;
+		padding: 24px 20px;
+		margin: 0 auto;
+		box-sizing: border-box;
 	}
 	main {
 		max-width: 100%;
 		min-height: 500px;
 		text-align: left;
-		margin: 0 auto;
 		box-sizing: border-box;
 	}
 	h1 {

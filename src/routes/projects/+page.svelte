@@ -50,11 +50,8 @@
 	.projectContainer {
 		width: 100%;
 		max-width: 900px;
-		display: flex;
-		justify-content: center;
 		box-sizing: border-box;
-		text-align: center;
-		padding: 1em;
+		padding: 24px 20px;
 		margin: 0 auto;
 	}
 	.note {
@@ -161,9 +158,6 @@
 		border-color: #ca3c25;
 	}
 	@media (min-width: 900px) {
-		.projectContainer {
-			padding: 0;
-		}
 		.projects > h1 {
 			font-size: 48px;
 			margin: 50px 0 0 0;

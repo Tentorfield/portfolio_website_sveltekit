@@ -409,10 +409,11 @@
 
 <style>
 	.container {
+		width: 100%;
 		max-width: 900px;
-		padding: 1em;
-		display: flex;
-		justify-content: center;
+		padding: 24px 20px;
+		margin: 0 auto;
+		box-sizing: border-box;
 	}
 	main {
 		min-height: 500px;

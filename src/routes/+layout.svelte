@@ -65,13 +65,16 @@
 		flex-direction: column;
 		justify-content: space-between;
 	}
+	:global(html) {
+		scrollbar-gutter: stable;
+		overflow-y: scroll;
+	}
 	:global(html),
 	:global(body) {
 		transition: background-color 0.2s ease 0s;
 		position: relative;
 		width: 100%;
 		height: 100%;
-		overflow: auto;
 		font-family: 'Fira Code', monospace;
 		background-color: #ffffff;
 		color: #000000;
