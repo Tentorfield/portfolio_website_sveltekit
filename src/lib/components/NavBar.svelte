@@ -8,7 +8,7 @@
 
 <header class="navbar" class:open={opened}>
 	<div class="navbar-inner">
-		<a class="brand" href="/" aria-label="Huy Ngo — Home" onclick={() => (opened = false)}>
+		<a class="brand" href="/" aria-label="Huy Ngo, Home" onclick={() => (opened = false)}>
 			<span class="brand-mark">HN</span>
 			<span class="brand-name">Huy Ngo</span>
 		</a>

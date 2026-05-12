@@ -1,7 +1,7 @@
 // Projects highlighted on huyngo.dev — ordered by recency / relevance to AI/Data work.
 const projects = [
 	{
-		title: 'Alliance Rehab — Trilingual AI Phone Receptionist',
+		title: 'Alliance Rehab: Trilingual AI Phone Receptionist',
 		company: 'EnEns LLC',
 		role: 'AI Engineer, Founder',
 		category: 'AI / Voice',
@@ -40,7 +40,7 @@ const projects = [
 		year: '2025 – Present',
 		technologies: ['Snowflake Cortex Analyst', 'Microsoft Teams', 'SQL', 'Python'],
 		description:
-			'Internal Microsoft Teams natural-language interface powered by Snowflake Cortex Analyst — empowering non-technical stakeholders to query enterprise data conversationally.',
+			'Internal Microsoft Teams natural-language interface powered by Snowflake Cortex Analyst, empowering non-technical stakeholders to query enterprise data conversationally.',
 		url: ''
 	},
 	{
@@ -51,7 +51,7 @@ const projects = [
 		year: '2025',
 		technologies: ['AWS Glue', 'Amazon S3', 'Snowflake', 'Python', 'SQL'],
 		description:
-			'Architected the company’s first cloud-native data warehouse — built an AWS Glue → S3 → Snowflake ETL pipeline to unify cross-product reporting and unlock downstream AI/ML workloads.',
+			'Architected the company’s first cloud-native data warehouse by building an AWS Glue, S3, and Snowflake ETL pipeline to unify cross-product reporting and unlock downstream AI/ML workloads.',
 		url: ''
 	},
 	{
@@ -73,7 +73,7 @@ const projects = [
 		year: '2025 – Present',
 		technologies: ['Python', 'Scikit-learn', 'Snowflake', 'Vehicle Telemetry'],
 		description:
-			'Predictive ML model for Diagnostic Trouble Code (DTC) fault prediction using aggregated vehicle telemetry — advancing automotive diagnostic forecasting capabilities.',
+			'Predictive ML model for Diagnostic Trouble Code (DTC) fault prediction using aggregated vehicle telemetry, advancing automotive diagnostic forecasting capabilities.',
 		url: ''
 	},
 	{
@@ -95,7 +95,7 @@ const projects = [
 		year: '2022 – 2025',
 		technologies: ['JavaScript', 'HTML', 'CSS', 'Figma'],
 		description:
-			'Owned the product roadmap and UI/UX for RSPRO — Innova’s pro-grade automotive diagnostic platform.',
+			'Owned the product roadmap and UI/UX for RSPRO, Innova’s pro-grade automotive diagnostic platform.',
 		url: 'https://pro.repairsolutions.com/'
 	},
 	{
@@ -106,7 +106,7 @@ const projects = [
 		year: '2022 – 2025',
 		technologies: ['JavaScript', 'HTML', 'CSS', 'Axure'],
 		description:
-			'Drove the 7111 OBD2 tablet from concept through sustained 40k+ active users — an enthusiast-and-pro diagnostic system with OEM-level coverage in an intuitive tablet form factor.',
+			'Drove the 7111 OBD2 tablet from concept through sustained 40k+ active users; an enthusiast-and-pro diagnostic system with OEM-level coverage in an intuitive tablet form factor.',
 		url: 'https://www.innova.com/products/smart-diagnostic-system-obd2-tablet-7111'
 	}
 ];

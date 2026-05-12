@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-	<title>Huy Ngo — {article?.title || 'Missing article'}</title>
+	<title>Huy Ngo | {article?.title || 'Missing article'}</title>
 </svelte:head>
 
 <div class="articleContainer">

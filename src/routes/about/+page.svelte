@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>Huy Ngo — About</title>
+	<title>Huy Ngo | About</title>
 </svelte:head>
 
 <div class="container">
@@ -23,8 +23,9 @@
 			and Twilio for a physical therapy clinic.
 		</p>
 		<p>
-			Through EnEns I'm also engaged with <strong>QD.TEK</strong> on their
-			<em>AI Automation &amp; Decision-Support Platform</em> — an enterprise POC for the
+			Through EnEns I'm also engaged with
+			<a href="https://qdtek.vn/en-US/home" target="_blank" rel="noopener noreferrer"><strong>QD.TEK</strong></a>
+			on their <em>AI Automation &amp; Decision-Support Platform</em>, an enterprise POC for the
 			Purchasing &amp; Logistics department that translates manual procurement workflows into
 			automated data pipelines and ML-backed decision logic.
 		</p>

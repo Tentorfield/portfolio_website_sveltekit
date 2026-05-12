@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>Huy Ngo — Projects</title>
+	<title>Huy Ngo | Projects</title>
 </svelte:head>
 
 <div class="projectContainer">

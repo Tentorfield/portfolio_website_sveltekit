@@ -6,17 +6,17 @@
 </script>
 
 <svelte:head>
-	<title>Huy Ngo — AI Engineer & Data Analyst</title>
+	<title>Huy Ngo | AI Engineer & Data Analyst</title>
 	<meta
 		name="description"
-		content="Huy Ngo — AI Engineer and Data Analyst based in California. Building applied ML, voice agents, and cloud data platforms."
+		content="Huy Ngo, AI Engineer and Data Analyst based in California. Building applied ML, voice agents, and cloud data platforms."
 	/>
 </svelte:head>
 
 <main>
 	<h1>
 		Hi!✋<br />
-		I'm Huy — an <span class="accent">AI Engineer &amp; Data Analyst</span>
+		I'm Huy, an <span class="accent">AI Engineer &amp; Data Analyst</span>
 		based in California, building applied ML, voice agents, and cloud data platforms.
 	</h1>
 

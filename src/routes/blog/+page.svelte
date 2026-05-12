@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-	<title>Huy Ngo — Blog</title>
+	<title>Huy Ngo | Blog</title>
 </svelte:head>
 
 <div class="container">
